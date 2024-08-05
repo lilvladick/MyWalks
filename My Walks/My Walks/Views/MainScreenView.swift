@@ -2,16 +2,31 @@ import MapKit
 import SwiftUI
 
 struct MainScreenView: View {
+    @AppStorage("isDarkModeOn") private var isDarkModeOn = false
+    
     @StateObject private var locationManager = LocationManager()
+    
     @State private var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
+    @State private var showSettings = false
     
     var body: some View {
-        Map(position: $cameraPosition) {
-            UserAnnotation()
+        NavigationStack {
+            Map(position: $cameraPosition) {
+                UserAnnotation()
+            }
+            .mapControls {
+                MapUserLocationButton()
+            }
+            .onAppear {
+                updateCameraPosition()
+            }
+            .overlay {
+                VStack{
+                    ControlPanelView()
+                }
+            }
         }
-        .onAppear {
-            updateCameraPosition()
-        }
+        .preferredColorScheme(isDarkModeOn ? .dark : .light)
     }
     
     func updateCameraPosition() {
@@ -19,8 +34,8 @@ struct MainScreenView: View {
             let userRegion = MKCoordinateRegion(
                 center: userLocation.coordinate,
                 span: MKCoordinateSpan(
-                    latitudeDelta: 0.3,
-                    longitudeDelta: 0.3
+                    latitudeDelta: 0.2,
+                    longitudeDelta: 0.2
                 )
             )
             withAnimation {
