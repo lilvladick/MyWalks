@@ -5,7 +5,7 @@ struct ControlPanelView: View {
     @AppStorage("walkIsStarted") private var walkIsStarted = false
     @AppStorage("walkIsPaused") private var walkIsPaused = false
     @State private var showAlert = false
-    @StateObject private var locationManager = LocationManager()
+    @EnvironmentObject private var locationManager: LocationManager
     
     var body: some View {
         NavigationStack {
@@ -29,9 +29,11 @@ struct ControlPanelView: View {
                     Button(action: {
                         if !walkIsStarted {
                             walkIsStarted = true
-                            //locationManager.
+                            locationManager.startLocationServices()
                         } else {
+                            walkIsPaused = true
                             showAlert.toggle()
+                            locationManager.stopLocationServices()
                         }
                     }, label: {
                         Image(systemName: walkIsStarted ? "pause" : "play")
@@ -59,11 +61,13 @@ struct ControlPanelView: View {
                         title: Text("Select action"),
                         message: Text("Select an action according to your action"),
                         primaryButton: .default(Text("Resume")) {
-                            walkIsPaused = true
+                            walkIsPaused = false
+                            locationManager.startLocationServices()
                         },
                         secondaryButton: .destructive(Text("Stop")) {
                             walkIsStarted = false
                             walkIsPaused = false
+                            locationManager.stopLocationServices()
                         }
                     )
                 }

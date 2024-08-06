@@ -6,7 +6,6 @@ import MapKit
  which allows you to use UIKit elements in SwiftUI.
  */
 struct MapView: UIViewRepresentable {
-    
     /**
      An array of user route coordinates and
      center coordinates that use the CLLocationCoordinate2D data type.
@@ -32,7 +31,7 @@ struct MapView: UIViewRepresentable {
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
             if let polyline = overlay as? MKPolyline {
                 let render = MKPolylineRenderer(polyline: polyline)
-                render.strokeColor = .blue
+                render.strokeColor = .red
                 render.lineWidth = 8.0
                 return render
             }
@@ -67,11 +66,13 @@ struct MapView: UIViewRepresentable {
         uiView.removeOverlays(uiView.overlays)
         
         let polyline = MKPolyline(coordinates: locations, count: locations.count)
-        
         uiView.addOverlay(polyline)
         
         if let locationCenter = locationCenter {
             let region = MKCoordinateRegion(center: locationCenter, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            uiView.setRegion(region, animated: true)
+        } else if let firstLocation = locations.first {
+            let region = MKCoordinateRegion(center: firstLocation, latitudinalMeters: 1000, longitudinalMeters: 1000)
             uiView.setRegion(region, animated: true)
         }
     }

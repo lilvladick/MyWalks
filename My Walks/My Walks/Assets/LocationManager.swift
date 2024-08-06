@@ -3,17 +3,19 @@ import SwiftUI
 import CoreLocation
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+    @AppStorage("walkIsPaused") private var walkIsPaused = false
     private let locationManager = CLLocationManager()
     @Published var userLocation: CLLocation?
-    var isAuthorized = false
     @Published var locations: [CLLocationCoordinate2D] = []
+    var isAuthorized = false
     
     override init() {
         super.init()
         locationManager.delegate = self
-        startLocationServices()
     }
-    
+    /**
+     
+     */
     func startLocationServices() {
         switch locationManager.authorizationStatus {
             case .authorizedAlways, .authorizedWhenInUse:
@@ -27,6 +29,17 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    func stopLocationServices() {
+        locationManager.stopUpdatingLocation()
+        
+        if !walkIsPaused {
+            locations.removeAll()
+        }
+    }
+    
+    /**
+     
+     */
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             userLocation = location
@@ -36,6 +49,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    /**
+     
+     */
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch locationManager.authorizationStatus {
         case .notDetermined:
@@ -54,6 +70,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    /**
+     
+     */
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         print(error.localizedDescription)
     }

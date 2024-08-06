@@ -15,6 +15,7 @@ struct MainScreenView: View {
             .overlay {
                 VStack{
                     ControlPanelView()
+                        .environmentObject(locationManager)
                         .padding(.horizontal)
                 }
             }
