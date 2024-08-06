@@ -14,6 +14,7 @@
 		5EE584AB2C6112B400606C93 /* My_WalksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE584AA2C6112B400606C93 /* My_WalksApp.swift */; };
 		5EE584B12C6112B600606C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EE584B02C6112B600606C93 /* Assets.xcassets */; };
 		5EE584B42C6112B600606C93 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EE584B32C6112B600606C93 /* Preview Assets.xcassets */; };
+		5EECC2542C6247740012A42F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EECC2532C6247740012A42F /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		5EE584AA2C6112B400606C93 /* My_WalksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_WalksApp.swift; sourceTree = "<group>"; };
 		5EE584B02C6112B600606C93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EE584B32C6112B600606C93 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5EECC2532C6247740012A42F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				5E5A0A272C6115FF00DC642C /* LocationManager.swift */,
+				5EECC2532C6247740012A42F /* MapView.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -76,6 +79,7 @@
 		5EE584A92C6112B400606C93 /* My Walks */ = {
 			isa = PBXGroup;
 			children = (
+				5EECC24E2C623A2B0012A42F /* Models */,
 				5E5A0A262C61158D00DC642C /* Assets */,
 				5E5A0A222C6112FD00DC642C /* Views */,
 				5EE584AA2C6112B400606C93 /* My_WalksApp.swift */,
@@ -92,6 +96,13 @@
 				5EE584B32C6112B600606C93 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5EECC24E2C623A2B0012A42F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EECC2542C6247740012A42F /* MapView.swift in Sources */,
 				5E5A0A2C2C612E4D00DC642C /* SettingsView.swift in Sources */,
 				5EE584AB2C6112B400606C93 /* My_WalksApp.swift in Sources */,
 				5E5A0A2A2C61281600DC642C /* ControlPanelView.swift in Sources */,

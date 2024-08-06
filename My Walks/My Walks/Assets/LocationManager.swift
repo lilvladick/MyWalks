@@ -2,10 +2,11 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-class LocationManager: NSObject ,ObservableObject, CLLocationManagerDelegate {
-    let locationManager = CLLocationManager()
-    var userLocation: CLLocation?
+class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+    private let locationManager = CLLocationManager()
+    @Published var userLocation: CLLocation?
     var isAuthorized = false
+    @Published var locations: [CLLocationCoordinate2D] = []
     
     override init() {
         super.init()
@@ -14,22 +15,29 @@ class LocationManager: NSObject ,ObservableObject, CLLocationManagerDelegate {
     }
     
     func startLocationServices() {
-        if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse {
-            locationManager.startUpdatingLocation()
-            isAuthorized = true
-        } else {
-            isAuthorized = false
-            locationManager.requestWhenInUseAuthorization()
+        switch locationManager.authorizationStatus {
+            case .authorizedAlways, .authorizedWhenInUse:
+                locationManager.allowsBackgroundLocationUpdates = true
+                locationManager.startUpdatingLocation()
+                isAuthorized = true
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+            default:
+                isAuthorized = false
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        userLocation = locations.last
+        if let location = locations.last {
+            userLocation = location
+
+            let newCoordinate = location.coordinate
+            self.locations.append(newCoordinate)
+        }
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch locationManager.authorizationStatus {
-            
         case .notDetermined:
             isAuthorized = false
             locationManager.requestWhenInUseAuthorization()
@@ -42,9 +50,10 @@ class LocationManager: NSObject ,ObservableObject, CLLocationManagerDelegate {
             isAuthorized = true
             locationManager.requestLocation()
         @unknown default:
-            print("error")
+            print("Unknown authorization status")
         }
     }
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         print(error.localizedDescription)
     }

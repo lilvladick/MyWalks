@@ -5,6 +5,7 @@ struct ControlPanelView: View {
     @AppStorage("walkIsStarted") private var walkIsStarted = false
     @AppStorage("walkIsPaused") private var walkIsPaused = false
     @State private var showAlert = false
+    @StateObject private var locationManager = LocationManager()
     
     var body: some View {
         NavigationStack {
@@ -28,6 +29,7 @@ struct ControlPanelView: View {
                     Button(action: {
                         if !walkIsStarted {
                             walkIsStarted = true
+                            //locationManager.
                         } else {
                             showAlert.toggle()
                         }
