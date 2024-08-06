@@ -23,6 +23,7 @@ struct MainScreenView: View {
             .overlay {
                 VStack{
                     ControlPanelView()
+                        .padding(.horizontal)
                 }
             }
         }

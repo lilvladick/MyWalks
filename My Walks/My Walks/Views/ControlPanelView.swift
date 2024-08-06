@@ -19,7 +19,7 @@ struct ControlPanelView: View {
                             .font(.system(size: 25))
                     })
                     .frame(width: 60, height: 60)
-                    .background(isDarkModeOn ? Color.black.opacity(0.5) : Color.white.opacity(0.7))
+                    .background(isDarkModeOn ? Color.black.opacity(0.6) : Color.white.opacity(0.7))
                     .clipShape(Circle())
                     
                     Spacer()
@@ -36,7 +36,7 @@ struct ControlPanelView: View {
                             .font(.system(size: 45))
                     })
                     .frame(width: 100, height: 100)
-                    .background(isDarkModeOn ? Color.black.opacity(0.5) : Color.white.opacity(0.7))
+                    .background(isDarkModeOn ? Color.black.opacity(0.6) : Color.white.opacity(0.7))
                     .clipShape(Circle())
                     
                     Spacer()
@@ -46,7 +46,7 @@ struct ControlPanelView: View {
                         Image(systemName:"gearshape")
                             .frame(width: 60, height: 60)
                             .font(.system(size: 25))
-                            .background(isDarkModeOn ? Color.black.opacity(0.5) : Color.white.opacity(0.7))
+                            .background(isDarkModeOn ? Color.black.opacity(0.6) : Color.white.opacity(0.7))
                             .clipShape(Circle())
                         }
                 }
@@ -56,7 +56,7 @@ struct ControlPanelView: View {
                     Alert(
                         title: Text("Select action"),
                         message: Text("Select an action according to your action"),
-                        primaryButton: .default(Text("Pause")) {
+                        primaryButton: .default(Text("Resume")) {
                             walkIsPaused = true
                         },
                         secondaryButton: .destructive(Text("Stop")) {
@@ -67,6 +67,7 @@ struct ControlPanelView: View {
                 }
             }
         }
+        .preferredColorScheme(isDarkModeOn ? .dark : .light)
     }
 }
 
