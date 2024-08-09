@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Environment(\.dismiss) private var dismiss
     @AppStorage("isDarkModeOn") private var isDarkModeOn = false
     @State private var measurementSystem = "Imperial"
     @State private var appLanguage = "English"

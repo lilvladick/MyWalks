@@ -7,6 +7,7 @@ struct MainScreenView: View {
     @StateObject private var locationManager = LocationManager()
     @State private var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
     @State private var showSettings = false
+    @State private var showSaveWalkSheet = false
     
     var body: some View {
         NavigationStack {
@@ -14,11 +15,14 @@ struct MainScreenView: View {
                 .ignoresSafeArea()
             .overlay {
                 VStack{
-                    ControlPanelView()
+                    ControlPanelView(showSaveWalkSheet: $showSaveWalkSheet)
                         .environmentObject(locationManager)
                         .padding(.horizontal)
                 }
             }
+        }
+        .sheet(isPresented: $showSaveWalkSheet) {
+            SaveWalkView().presentationDetents([.fraction(0.30)])
         }
         .preferredColorScheme(isDarkModeOn ? .dark : .light)
     }

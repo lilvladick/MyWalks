@@ -11,6 +11,7 @@
 		5E5A0A282C6115FF00DC642C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A0A272C6115FF00DC642C /* LocationManager.swift */; };
 		5E5A0A2A2C61281600DC642C /* ControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A0A292C61281600DC642C /* ControlPanelView.swift */; };
 		5E5A0A2C2C612E4D00DC642C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A0A2B2C612E4D00DC642C /* SettingsView.swift */; };
+		5E7932292C661FD2006E90B5 /* SaveWalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7932282C661FD2006E90B5 /* SaveWalkView.swift */; };
 		5EE584AB2C6112B400606C93 /* My_WalksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE584AA2C6112B400606C93 /* My_WalksApp.swift */; };
 		5EE584B12C6112B600606C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EE584B02C6112B600606C93 /* Assets.xcassets */; };
 		5EE584B42C6112B600606C93 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EE584B32C6112B600606C93 /* Preview Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		5E5A0A272C6115FF00DC642C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5E5A0A292C61281600DC642C /* ControlPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanelView.swift; sourceTree = "<group>"; };
 		5E5A0A2B2C612E4D00DC642C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5E7932282C661FD2006E90B5 /* SaveWalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveWalkView.swift; sourceTree = "<group>"; };
 		5EE584A72C6112B400606C93 /* My Walks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Walks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE584AA2C6112B400606C93 /* My_WalksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_WalksApp.swift; sourceTree = "<group>"; };
 		5EE584B02C6112B600606C93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 				5E5A0A232C61131800DC642C /* MainScreenView.swift */,
 				5E5A0A292C61281600DC642C /* ControlPanelView.swift */,
 				5E5A0A2B2C612E4D00DC642C /* SettingsView.swift */,
+				5E7932282C661FD2006E90B5 /* SaveWalkView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				5E5A0A2C2C612E4D00DC642C /* SettingsView.swift in Sources */,
 				5EE584AB2C6112B400606C93 /* My_WalksApp.swift in Sources */,
 				5E5A0A2A2C61281600DC642C /* ControlPanelView.swift in Sources */,
+				5E7932292C661FD2006E90B5 /* SaveWalkView.swift in Sources */,
 				5E5A0A242C61131800DC642C /* MainScreenView.swift in Sources */,
 				5E5A0A282C6115FF00DC642C /* LocationManager.swift in Sources */,
 			);

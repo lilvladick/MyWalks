@@ -6,6 +6,7 @@ struct ControlPanelView: View {
     @AppStorage("walkIsPaused") private var walkIsPaused = false
     @State private var showAlert = false
     @EnvironmentObject private var locationManager: LocationManager
+    @Binding var showSaveWalkSheet: Bool
     
     var body: some View {
         NavigationStack {
@@ -68,6 +69,7 @@ struct ControlPanelView: View {
                             walkIsStarted = false
                             walkIsPaused = false
                             locationManager.stopLocationServices()
+                            showSaveWalkSheet = true
                         }
                     )
                 }
@@ -77,6 +79,6 @@ struct ControlPanelView: View {
     }
 }
 
-#Preview {
+/*#Preview {
     ControlPanelView()
-}
+}*/
