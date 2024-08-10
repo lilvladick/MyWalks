@@ -14,15 +14,13 @@ struct ControlPanelView: View {
                 Spacer()
                 HStack {
                     // LIST OF WALKS
-                    Button(action: {
-                        // Action for listing walks
-                    }, label: {
+                    NavigationLink(destination: WalkListView()) {
                         Image(systemName: "list.bullet")
                             .font(.system(size: 25))
-                    })
-                    .frame(width: 60, height: 60)
-                    .background(isDarkModeOn ? Color.black.opacity(0.6) : Color.white.opacity(0.7))
-                    .clipShape(Circle())
+                            .frame(width: 60, height: 60)
+                            .background(isDarkModeOn ? Color.black.opacity(0.6) : Color.white.opacity(0.7))
+                            .clipShape(Circle())
+                    }
                     
                     Spacer()
                     
