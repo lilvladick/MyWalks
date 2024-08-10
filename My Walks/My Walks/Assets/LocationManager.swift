@@ -29,6 +29,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    /**
+     
+     */
     func stopLocationServices() {
         locationManager.stopUpdatingLocation()
         

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @AppStorage("isDarkModeOn") private var isDarkModeOn = false
-    @State private var measurementSystem = "Imperial"
+    @AppStorage("measurementSystem") private var measurementSystem = "Imperial"
     @State private var appLanguage = "English"
     
     var body: some View {

@@ -13,10 +13,10 @@
 		5E5A0A2C2C612E4D00DC642C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A0A2B2C612E4D00DC642C /* SettingsView.swift */; };
 		5E7932292C661FD2006E90B5 /* SaveWalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7932282C661FD2006E90B5 /* SaveWalkView.swift */; };
 		5E79322B2C6627FF006E90B5 /* WalkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E79322A2C6627FF006E90B5 /* WalkModel.swift */; };
-		5E79322D2C662AC8006E90B5 /* CoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E79322C2C662AC8006E90B5 /* CoordinateModel.swift */; };
 		5EE584AB2C6112B400606C93 /* My_WalksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE584AA2C6112B400606C93 /* My_WalksApp.swift */; };
 		5EE584B12C6112B600606C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EE584B02C6112B600606C93 /* Assets.xcassets */; };
 		5EE584B42C6112B600606C93 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EE584B32C6112B600606C93 /* Preview Assets.xcassets */; };
+		5EEBEB872C679928005DAA73 /* WalkRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBEB862C679928005DAA73 /* WalkRowView.swift */; };
 		5EECC2542C6247740012A42F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EECC2532C6247740012A42F /* MapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,11 +28,11 @@
 		5E5A0A2B2C612E4D00DC642C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5E7932282C661FD2006E90B5 /* SaveWalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveWalkView.swift; sourceTree = "<group>"; };
 		5E79322A2C6627FF006E90B5 /* WalkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkModel.swift; sourceTree = "<group>"; };
-		5E79322C2C662AC8006E90B5 /* CoordinateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateModel.swift; sourceTree = "<group>"; };
 		5EE584A72C6112B400606C93 /* My Walks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Walks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE584AA2C6112B400606C93 /* My_WalksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_WalksApp.swift; sourceTree = "<group>"; };
 		5EE584B02C6112B600606C93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EE584B32C6112B600606C93 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5EEBEB862C679928005DAA73 /* WalkRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkRowView.swift; sourceTree = "<group>"; };
 		5EECC2532C6247740012A42F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,6 +50,7 @@
 		5E5A0A222C6112FD00DC642C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5EEBEB852C6798F6005DAA73 /* WalkViews */,
 				5E5A0A232C61131800DC642C /* MainScreenView.swift */,
 				5E5A0A292C61281600DC642C /* ControlPanelView.swift */,
 				5E5A0A2B2C612E4D00DC642C /* SettingsView.swift */,
@@ -105,11 +106,18 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		5EEBEB852C6798F6005DAA73 /* WalkViews */ = {
+			isa = PBXGroup;
+			children = (
+				5EEBEB862C679928005DAA73 /* WalkRowView.swift */,
+			);
+			path = WalkViews;
+			sourceTree = "<group>";
+		};
 		5EECC24E2C623A2B0012A42F /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				5E79322A2C6627FF006E90B5 /* WalkModel.swift */,
-				5E79322C2C662AC8006E90B5 /* CoordinateModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -184,11 +192,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E79322D2C662AC8006E90B5 /* CoordinateModel.swift in Sources */,
 				5EECC2542C6247740012A42F /* MapView.swift in Sources */,
 				5E5A0A2C2C612E4D00DC642C /* SettingsView.swift in Sources */,
 				5E79322B2C6627FF006E90B5 /* WalkModel.swift in Sources */,
 				5EE584AB2C6112B400606C93 /* My_WalksApp.swift in Sources */,
+				5EEBEB872C679928005DAA73 /* WalkRowView.swift in Sources */,
 				5E5A0A2A2C61281600DC642C /* ControlPanelView.swift in Sources */,
 				5E7932292C661FD2006E90B5 /* SaveWalkView.swift in Sources */,
 				5E5A0A242C61131800DC642C /* MainScreenView.swift in Sources */,

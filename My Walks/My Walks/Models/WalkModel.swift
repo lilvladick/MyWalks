@@ -3,18 +3,20 @@ import CoreLocation
 
 @Model
 class Walk {
-    var id: UUID
+    let id = UUID()
     var name: String
     var walkDescription: String?
-    //var coordinates: [Coordinate]
-    //var startPoint: Coordinate
-   // var endPoint: Coordinate
+    var startPoint: String
+    var endPoint: String
+    var distance: Double
     var walkImage: Data?
 
-    init(id: UUID, name: String, walkDescription: String? = nil, walkImage: Data? = nil) {
-        self.id = id
+    init(name: String, walkDescription: String? = nil, startPoint: String, endPoint: String, distance: Double, walkImage: Data? = nil) {
         self.name = name
         self.walkDescription = walkDescription
+        self.startPoint = startPoint
+        self.endPoint = endPoint
+        self.distance = distance
         self.walkImage = walkImage
     }
 }
