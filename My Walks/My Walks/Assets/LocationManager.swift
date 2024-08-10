@@ -5,14 +5,79 @@ import CoreLocation
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @AppStorage("walkIsPaused") private var walkIsPaused = false
     private let locationManager = CLLocationManager()
+    private let geocoder = CLGeocoder()
+    @Published var totalDistance: CLLocationDistance = 0
     @Published var userLocation: CLLocation?
     @Published var locations: [CLLocationCoordinate2D] = []
+    private var lastLocation: CLLocation?
     var isAuthorized = false
     
     override init() {
         super.init()
         locationManager.delegate = self
     }
+    
+    func getStartEndPoints(completion: @escaping ([String]) -> Void) {
+        guard locations.count >= 2 else {
+            completion([])
+            return
+        }
+        
+        let startPoint = locations.first!
+        let endPoint = locations.last!
+        var points: [String] = []
+        
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
+        getLocation(from: startPoint) { point in
+            if let point = point {
+                points.append(point)
+            } else {
+                points.append("Start location not found")
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        getLocation(from: endPoint) { point in
+            if let point = point {
+                points.append(point)
+            } else {
+                points.append("Start location not found")
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+           completion(points)
+       }
+    }
+    
+    private func getLocation(from coordinate: CLLocationCoordinate2D, completion: @escaping(String?) -> Void) {
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        geocoder.reverseGeocodeLocation(location) { placemarks, error in
+            if error != nil {
+                completion(nil)
+                return
+            }
+            
+            if let placemark = placemarks?.first {
+                if let street = placemark.thoroughfare {
+                    completion(street)
+                } else if let locality = placemark.locality {
+                    completion(locality)
+                } else if let administrativeArea = placemark.administrativeArea {
+                    completion(administrativeArea)
+                } else {
+                    completion("Unknown location")
+                }
+            } else {
+                completion("Placemark not found")
+            }
+        }
+    }
+    
     /**
      
      */
@@ -34,10 +99,12 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
      */
     func stopLocationServices() {
         locationManager.stopUpdatingLocation()
-        
-        if !walkIsPaused {
-            locations.removeAll()
-        }
+    }
+    
+    func clearLocationsArray() {
+        locations.removeAll()
+        totalDistance = 0
+        lastLocation = nil
     }
     
     /**
@@ -46,6 +113,11 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             userLocation = location
+            
+            if let lastLocation = lastLocation {
+                let distance = location.distance(from: lastLocation)
+                totalDistance += distance
+            }
 
             let newCoordinate = location.coordinate
             self.locations.append(newCoordinate)

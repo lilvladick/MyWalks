@@ -23,6 +23,7 @@ struct MainScreenView: View {
         }
         .sheet(isPresented: $showSaveWalkSheet) {
             SaveWalkView()
+                .environmentObject(locationManager)
                 .presentationDetents([.fraction(0.30)])
         }
         .preferredColorScheme(isDarkModeOn ? .dark : .light)

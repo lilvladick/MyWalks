@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E37E0A42C67C3F00069554F /* SaveWalkFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E37E0A32C67C3F00069554F /* SaveWalkFormView.swift */; };
 		5E5A0A242C61131800DC642C /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A0A232C61131800DC642C /* MainScreenView.swift */; };
 		5E5A0A282C6115FF00DC642C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A0A272C6115FF00DC642C /* LocationManager.swift */; };
 		5E5A0A2A2C61281600DC642C /* ControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A0A292C61281600DC642C /* ControlPanelView.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E37E0A32C67C3F00069554F /* SaveWalkFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveWalkFormView.swift; sourceTree = "<group>"; };
 		5E5A0A232C61131800DC642C /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		5E5A0A252C6114AD00DC642C /* My-Walks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "My-Walks-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5E5A0A272C6115FF00DC642C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				5EEBEB862C679928005DAA73 /* WalkRowView.swift */,
 				5EEBEB882C67A16E005DAA73 /* WalkListView.swift */,
 				5EEBEB8A2C67A31A005DAA73 /* WalkDetailsView.swift */,
+				5E37E0A32C67C3F00069554F /* SaveWalkFormView.swift */,
 			);
 			path = WalkViews;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				5EE584AB2C6112B400606C93 /* My_WalksApp.swift in Sources */,
 				5EEBEB872C679928005DAA73 /* WalkRowView.swift in Sources */,
 				5E5A0A2A2C61281600DC642C /* ControlPanelView.swift in Sources */,
+				5E37E0A42C67C3F00069554F /* SaveWalkFormView.swift in Sources */,
 				5E7932292C661FD2006E90B5 /* SaveWalkView.swift in Sources */,
 				5E5A0A242C61131800DC642C /* MainScreenView.swift in Sources */,
 				5EEBEB8B2C67A31A005DAA73 /* WalkDetailsView.swift in Sources */,
