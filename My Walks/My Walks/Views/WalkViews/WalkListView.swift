@@ -6,10 +6,17 @@ struct WalkListView: View {
     @AppStorage("isDarkModeOn") private var isDarkmodeOn = false
     @Query var walks: [Walk]
     @State private var searchText = ""
+    var filterWalks: [Walk] {
+        guard !searchText.isEmpty else { return walks }
+        
+        return walks.filter({ $0.name.localizedCaseInsensitiveContains(searchText) })
+    }
+    
+    
     var body: some View {
         NavigationStack {
             List {
-                ForEach(walks, id: \.id) { walk in
+                ForEach(filterWalks, id: \.id) { walk in
                     NavigationLink(destination: WalkDetailsView()) {
                         WalkRowView(walk: walk)
                     }
@@ -17,7 +24,13 @@ struct WalkListView: View {
                 }
                 .onDelete(perform: deleteWalk)
             }
-            .navigationTitle("Saved walks").searchable(text: $searchText)
+            .navigationTitle("Saved walks")
+            .searchable(text: $searchText)
+            .overlay {
+                if filterWalks.isEmpty {
+                    ContentUnavailableView.search(text: searchText)
+                }
+            }
         }
         .preferredColorScheme(isDarkmodeOn ? .dark : .light)
     }
