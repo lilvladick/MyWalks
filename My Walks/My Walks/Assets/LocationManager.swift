@@ -5,7 +5,6 @@ import CoreLocation
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @AppStorage("walkIsPaused") private var walkIsPaused = false
     private let locationManager = CLLocationManager()
-    private let geocoder = CLGeocoder()
     @Published var totalDistance: CLLocationDistance = 0
     @Published var userLocation: CLLocation?
     @Published var locations: [CLLocationCoordinate2D] = []
@@ -17,8 +16,10 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.delegate = self
     }
     
+    
     func getStartEndPoints(completion: @escaping ([String]) -> Void) {
         guard locations.count >= 2 else {
+            print("Not enough locations")
             completion([])
             return
         }
@@ -44,20 +45,22 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             if let point = point {
                 points.append(point)
             } else {
-                points.append("Start location not found")
+                points.append("End location not found")
             }
             dispatchGroup.leave()
         }
         
         dispatchGroup.notify(queue: .main) {
-           completion(points)
-       }
+            completion(points)
+        }
     }
-    
-    private func getLocation(from coordinate: CLLocationCoordinate2D, completion: @escaping(String?) -> Void) {
+
+    private func getLocation(from coordinate: CLLocationCoordinate2D, completion: @escaping (String?) -> Void) {
+        let geocoder = CLGeocoder()
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
-            if error != nil {
+            if let error = error {
+                print("Geocoding error: \(error.localizedDescription)")
                 completion(nil)
                 return
             }
@@ -77,7 +80,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             }
         }
     }
-    
+
     /**
      
      */

@@ -10,7 +10,6 @@ struct SaveWalkFormView: View {
     @State private var walkDescription = ""
     var locations: [String]
     var distance: Double
-    
     var body: some View {
         NavigationStack {
             Form {
