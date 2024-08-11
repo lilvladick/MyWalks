@@ -5,7 +5,7 @@ struct SaveWalkView: View {
     @EnvironmentObject private var locationManager: LocationManager
     @AppStorage("isDarkModeOn") private var isDarkmodeOn = false
     @State private var showSavingForm = false
-    @State var locationArray: [String] = []
+    @State private var locationArray: [String] = []
     @State private var totalDistance: Double = 0.0
     
     var body: some View {
@@ -39,7 +39,7 @@ struct SaveWalkView: View {
                     }
                 }
                 .fullScreenCover(isPresented: $showSavingForm, content: {
-                    SaveWalkFormView(locations: locationArray, distance: totalDistance)
+                    SaveWalkFormView(locations: $locationArray, distance: $totalDistance)
                 })
                 .padding()
                 .frame(width: 120, height: 40)

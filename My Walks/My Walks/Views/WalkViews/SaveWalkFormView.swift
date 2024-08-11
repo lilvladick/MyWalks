@@ -8,8 +8,8 @@ struct SaveWalkFormView: View {
     @AppStorage("measurementSystem") private var measurementSystem = "Imperial"
     @State private var walkName = ""
     @State private var walkDescription = ""
-    var locations: [String]
-    var distance: Double
+    @Binding var locations: [String]
+    @Binding var distance: Double
     var body: some View {
         NavigationStack {
             Form {
@@ -74,7 +74,7 @@ struct SaveWalkFormView: View {
         }
     }
 }
-
+/*
 #Preview {
     SaveWalkFormView(locations: ["start","end"], distance: 2.2)
-}
+}*/

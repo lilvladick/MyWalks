@@ -50,6 +50,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             dispatchGroup.leave()
         }
         
+        clearLocationsArray()
+        
         dispatchGroup.notify(queue: .main) {
             completion(points)
         }
