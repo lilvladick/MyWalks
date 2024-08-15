@@ -1,4 +1,5 @@
 import SwiftUI
+import CoreLocation
 
 struct SaveWalkView: View {
     @Environment(\.dismiss) private var dismiss
@@ -6,7 +7,7 @@ struct SaveWalkView: View {
     @AppStorage("isDarkModeOn") private var isDarkmodeOn = false
     @State private var showSavingForm = false
     @State private var locationArray: [String] = []
-    @State private var totalDistance: Double = 0.0
+    @State private var totalDistance: CLLocationDistance = 0.0
     
     var body: some View {
         VStack {
@@ -31,10 +32,9 @@ struct SaveWalkView: View {
                 .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
                 
                 Button("Save") {
+                    totalDistance = locationManager.totalDistance / 1000.0
                     locationManager.getStartEndPoints { points in
                         locationArray = points
-                        print(locationArray)
-                        totalDistance = locationManager.totalDistance
                         showSavingForm.toggle()
                     }
                 }

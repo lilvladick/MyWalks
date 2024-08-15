@@ -37,7 +37,8 @@ struct SaveWalkFormView: View {
                     Text(verbatim: String(format: "%.2f", distance) + " \(measurementSystem=="Metric" ? "kilometers" : "miles")")
                 }
                 Section("Description") {
-                    TextEditor(text: $walkDescription).frame(minHeight: 150)
+                    TextEditor(text: $walkDescription)
+                        .frame(minHeight: 150)
                 }
             }
             .foregroundStyle(isDarkmodeOn ? Color.white : Color.black)
@@ -47,7 +48,9 @@ struct SaveWalkFormView: View {
                     Button("Save") {
                         saveWalk()
                         dismiss()
-                    }.foregroundStyle(isDarkmodeOn ? Color.white : Color.black)
+                    }
+                    .foregroundStyle(isDarkmodeOn ? Color.white : Color.black)
+                    .disabled(walkName.isEmpty)
                 })
             }
         }

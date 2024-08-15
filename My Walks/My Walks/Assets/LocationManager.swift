@@ -5,7 +5,7 @@ import CoreLocation
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @AppStorage("walkIsPaused") private var walkIsPaused = false
     private let locationManager = CLLocationManager()
-    @Published var totalDistance: CLLocationDistance = 0
+    @Published var totalDistance: CLLocationDistance = 0.0
     @Published var userLocation: CLLocation?
     @Published var locations: [CLLocationCoordinate2D] = []
     private var lastLocation: CLLocation?
@@ -108,7 +108,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func clearLocationsArray() {
         locations.removeAll()
-        totalDistance = 0
+        totalDistance = 0.0
         lastLocation = nil
     }
     
@@ -123,6 +123,10 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 let distance = location.distance(from: lastLocation)
                 totalDistance += distance
             }
+            
+            lastLocation = location
+            
+            print(totalDistance)
 
             let newCoordinate = location.coordinate
             self.locations.append(newCoordinate)
