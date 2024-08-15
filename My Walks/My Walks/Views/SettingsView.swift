@@ -3,21 +3,21 @@ import SwiftUI
 struct SettingsView: View {
     @AppStorage("isDarkModeOn") private var isDarkModeOn = false
     @AppStorage("measurementSystem") private var measurementSystem = "Imperial"
-    @State private var appLanguage = "English"
+    @AppStorage("appLanguage") private var appLanguage = "English"
     
     var body: some View {
         NavigationStack {
             Form {
-                Section("Main settings"){
+                Section("Main settings") {
                     Picker("Measurement system", selection: $measurementSystem) {
-                        Text("Metric")
-                        Text("Imperial")
+                        Text("Imperial").tag("Imperial")
+                        Text("Metric").tag("Metric")
                     }
                     Picker("App language", selection: $appLanguage) {
-                        Text("English")
+                        Text("English").tag("English")
                     }
                 }
-                Section("App deisgn") {
+                Section("App design") {
                     Toggle("Dark Mode", isOn: $isDarkModeOn)
                 }
             }
@@ -27,6 +27,8 @@ struct SettingsView: View {
     }
 }
 
-#Preview {
-    SettingsView()
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsView()
+    }
 }
