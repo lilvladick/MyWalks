@@ -21,9 +21,17 @@ struct WalkRowView: View {
             
             Spacer()
             
-            Text(String(format: "%.2f", walk.distance)+" \(measurementSystem=="Metric" ? "km" : "mp")")
+            Text(String(format: "%.2f", formattedDistance)+" \(measurementSystem=="Metric" ? "km" : "mp")")
                 .font(.title3)
                 .bold()
+        }
+    }
+    
+    var formattedDistance: Double {
+        if measurementSystem == "Imperial" {
+            return walk.distance * 0.000621371
+        } else {
+            return walk.distance * 0.001
         }
     }
 }

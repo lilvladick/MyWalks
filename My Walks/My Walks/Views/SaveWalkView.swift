@@ -23,6 +23,7 @@ struct SaveWalkView: View {
                 .foregroundStyle(Color.gray)
             HStack {
                 Button("No, thanks") {
+                    locationManager.clearLocationsArray()
                     dismiss()
                 }
                 .padding()
@@ -32,7 +33,7 @@ struct SaveWalkView: View {
                 .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
                 
                 Button("Save") {
-                    totalDistance = locationManager.totalDistance / 1000.0
+                    totalDistance = locationManager.totalDistance
                     locationManager.getStartEndPoints { points in
                         locationArray = points
                         showSavingForm.toggle()

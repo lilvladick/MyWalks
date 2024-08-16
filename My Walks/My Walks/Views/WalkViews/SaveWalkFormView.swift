@@ -14,16 +14,16 @@ struct SaveWalkFormView: View {
         NavigationStack {
             Form {
                 /*
-                VStack {
-                    if let walkImage = , let uiImage = UIImage(data: walkImage) {
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 150)
-                    } else {
-                        Text("No image available =(").frame(height: 100)
-                    }
-                }*/
+                 VStack {
+                 if let walkImage = , let uiImage = UIImage(data: walkImage) {
+                 Image(uiImage: uiImage)
+                 .resizable()
+                 .aspectRatio(contentMode: .fit)
+                 .frame(height: 150)
+                 } else {
+                 Text("No image available =(").frame(height: 100)
+                 }
+                 }*/
                 
                 Section("Walk name") {
                     TextField("Walk name", text: $walkName)
@@ -34,7 +34,7 @@ struct SaveWalkFormView: View {
                     } else {
                         Text(verbatim: "You stood still")
                     }
-                    Text(verbatim: String(format: "%.2f", distance) + " \(measurementSystem=="Metric" ? "kilometers" : "miles")")
+                    Text(verbatim: String(format: "%.2f", formattedDistance) + " \(measurementSystem=="Metric" ? "kilometers" : "miles")")
                 }
                 Section("Description") {
                     TextEditor(text: $walkDescription)
@@ -53,6 +53,15 @@ struct SaveWalkFormView: View {
                     .disabled(walkName.isEmpty)
                 })
             }
+        }
+    }
+    
+    var formattedDistance: Double {
+        let distanceText = distance
+        if measurementSystem == "Imperial" {
+            return distanceText * 0.000621371
+        } else {
+            return distanceText * 0.001
         }
     }
     
