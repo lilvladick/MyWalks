@@ -10,20 +10,20 @@ struct SaveWalkFormView: View {
     @State private var walkDescription = ""
     @Binding var locations: [String]
     @Binding var distance: Double
+    @Binding var mapImage: UIImage?
     var body: some View {
         NavigationStack {
             Form {
-                /*
                  VStack {
-                 if let walkImage = , let uiImage = UIImage(data: walkImage) {
-                 Image(uiImage: uiImage)
-                 .resizable()
-                 .aspectRatio(contentMode: .fit)
-                 .frame(height: 150)
-                 } else {
-                 Text("No image available =(").frame(height: 100)
+                     if let walkImage = mapImage {
+                         Image(uiImage: walkImage)
+                             .resizable()
+                             .aspectRatio(contentMode: .fit)
+                             .frame(height: 150)
+                     } else {
+                         Text("No image available =(").frame(height: 100)
+                     }
                  }
-                 }*/
                 
                 Section("Walk name") {
                     TextField("Walk name", text: $walkName)

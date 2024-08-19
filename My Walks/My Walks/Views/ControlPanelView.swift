@@ -28,6 +28,7 @@ struct ControlPanelView: View {
                     Button(action: {
                         if !walkIsStarted {
                             walkIsStarted = true
+                            locationManager.clearLocationsArray()
                             locationManager.startLocationServices()
                         } else {
                             walkIsPaused = true

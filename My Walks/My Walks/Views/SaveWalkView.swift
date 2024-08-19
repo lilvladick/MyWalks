@@ -1,4 +1,5 @@
 import SwiftUI
+import MapKit
 import CoreLocation
 
 struct SaveWalkView: View {
@@ -8,6 +9,7 @@ struct SaveWalkView: View {
     @State private var showSavingForm = false
     @State private var locationArray: [String] = []
     @State private var totalDistance: CLLocationDistance = 0.0
+    @State private var mapImage: UIImage? = nil
     
     var body: some View {
         VStack {
@@ -36,11 +38,15 @@ struct SaveWalkView: View {
                     totalDistance = locationManager.totalDistance
                     locationManager.getStartEndPoints { points in
                         locationArray = points
-                        showSavingForm.toggle()
+                        
+                        createSnapshot { image in
+                            mapImage = image
+                            showSavingForm.toggle()
+                        }
                     }
                 }
                 .fullScreenCover(isPresented: $showSavingForm, content: {
-                    SaveWalkFormView(locations: $locationArray, distance: $totalDistance)
+                    SaveWalkFormView(locations: $locationArray, distance: $totalDistance, mapImage: $mapImage)
                 })
                 .padding()
                 .frame(width: 120, height: 40)
@@ -51,6 +57,31 @@ struct SaveWalkView: View {
             .padding(.vertical)
         }
     }
+    
+    func createSnapshot(completion: @escaping (UIImage?) -> Void) {
+            
+        let region = MKCoordinateRegion(
+            center: locationManager.locations.last ?? CLLocationCoordinate2D(latitude: 0, longitude: 0),
+            latitudinalMeters: 1000,
+            longitudinalMeters: 1000
+        )
+        
+        let options = MKMapSnapshotter.Options()
+        options.region = region
+        options.size = CGSize(width: 400, height: 250)
+        options.scale = UIScreen.main.scale
+        
+        let snapshotter = MKMapSnapshotter(options: options)
+        
+        snapshotter.start { snapshotOrNil, _ in
+            if let snapshot = snapshotOrNil {
+                completion(snapshot.image)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
 }
 
 #Preview {

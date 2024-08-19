@@ -76,26 +76,4 @@ struct MapView: UIViewRepresentable {
             uiView.setRegion(region, animated: true)
         }
     }
-    
-    func createSnapshot(completion: @escaping (UIImage?) -> Void) {
-        let region = MKCoordinateRegion(
-            center: locationCenter ?? locations.first ?? CLLocationCoordinate2D(latitude: 0, longitude: 0),
-            latitudinalMeters: 1000,
-            longitudinalMeters: 1000
-        )
-        
-        let options = MKMapSnapshotter.Options()
-        options.region = region
-        options.size = CGSize(width: 300, height: 300)
-        
-        let snapshotter = MKMapSnapshotter(options: options)
-        
-        snapshotter.start { snapshotOrNil, _ in
-            if let snapshot = snapshotOrNil {
-                completion(snapshot.image)
-            } else {
-                completion(nil)
-            }
-        }
-    }
 }
