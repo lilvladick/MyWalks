@@ -72,7 +72,7 @@ struct SaveWalkFormView: View {
             startPoint: locations[0],
             endPoint: locations[1],
             distance: distance,
-            walkImage: nil
+            walkImage: mapImage?.jpegData(compressionQuality: 0.5)
         )
         
         modelContext.insert(newWalk)
