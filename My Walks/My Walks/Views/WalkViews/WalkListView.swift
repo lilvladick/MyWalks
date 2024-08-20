@@ -17,7 +17,7 @@ struct WalkListView: View {
         NavigationStack {
             List {
                 ForEach(filterWalks, id: \.id) { walk in
-                    NavigationLink(destination: WalkDetailsView()) {
+                    NavigationLink(destination: WalkDetailsView(walk: walk)) {
                         WalkRowView(walk: walk)
                     }
                     .tint(isDarkmodeOn ? Color.white : Color.black)
