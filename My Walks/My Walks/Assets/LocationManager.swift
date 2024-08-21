@@ -124,8 +124,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             }
             
             lastLocation = location
-            
-            print(totalDistance)
 
             let newCoordinate = location.coordinate
             self.locations.append(newCoordinate)

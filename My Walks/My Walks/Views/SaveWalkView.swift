@@ -74,11 +74,26 @@ struct SaveWalkView: View {
         let snapshotter = MKMapSnapshotter(options: options)
         
         snapshotter.start { snapshotOrNil, _ in
-            if let snapshot = snapshotOrNil {
-                completion(snapshot.image)
-            } else {
+            guard let snapshot = snapshotOrNil else {
                 completion(nil)
+                return
             }
+            
+            let image = UIGraphicsImageRenderer(size: options.size).image { context in
+                snapshot.image.draw(at: .zero)
+                
+                context.cgContext.setStrokeColor(UIColor.red.cgColor)
+                context.cgContext.setLineWidth(8.0)
+                
+                let points = locationManager.locations.map { location in
+                    snapshot.point(for: location)
+                }
+                
+                context.cgContext.addLines(between: points)
+                context.cgContext.strokePath()
+            }
+            
+            completion(image)
         }
     }
     

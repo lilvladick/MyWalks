@@ -32,7 +32,7 @@ struct WalkDetailsView: View {
                 if walk.walkImage == nil {
                     Text("No image")
                         .frame(maxWidth: .infinity, maxHeight: 200)
-                        .background(Color.blue)
+                        .background(Color.gray)
                         .clipShape(RoundedRectangle(cornerSize: CGSize(width: 20, height: 10)))
                         .padding()
                 } else {
@@ -55,6 +55,7 @@ struct WalkDetailsView: View {
                         TextEditor(text: $walkDescription).frame(height: 150)
                     }
                 }
+                .scrollDisabled(true)
             }
             .preferredColorScheme(isDarkmodeOn ? .dark : .light)
             .background(Color(.systemGroupedBackground))

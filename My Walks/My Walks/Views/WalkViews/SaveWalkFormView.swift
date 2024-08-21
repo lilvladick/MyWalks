@@ -41,6 +41,7 @@ struct SaveWalkFormView: View {
                         .frame(minHeight: 150)
                 }
             }
+            .scrollDisabled(true)
             .foregroundStyle(isDarkmodeOn ? Color.white : Color.black)
             .navigationTitle("Adding new walk")
             .toolbar {
