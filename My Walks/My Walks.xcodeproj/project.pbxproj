@@ -14,6 +14,14 @@
 		5E5A0A2C2C612E4D00DC642C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A0A2B2C612E4D00DC642C /* SettingsView.swift */; };
 		5E7932292C661FD2006E90B5 /* SaveWalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7932282C661FD2006E90B5 /* SaveWalkView.swift */; };
 		5E79322B2C6627FF006E90B5 /* WalkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E79322A2C6627FF006E90B5 /* WalkModel.swift */; };
+		5E9BF1A62C774C270027F054 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9BF1A52C774C260027F054 /* WidgetKit.framework */; };
+		5E9BF1A82C774C270027F054 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9BF1A72C774C270027F054 /* SwiftUI.framework */; };
+		5E9BF1AB2C774C270027F054 /* MyWalksWidgetsAndActivityBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9BF1AA2C774C270027F054 /* MyWalksWidgetsAndActivityBundle.swift */; };
+		5E9BF1AD2C774C270027F054 /* MyWalksWidgetsAndActivityLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9BF1AC2C774C270027F054 /* MyWalksWidgetsAndActivityLiveActivity.swift */; };
+		5E9BF1AF2C774C270027F054 /* MyWalksWidgetsAndActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9BF1AE2C774C270027F054 /* MyWalksWidgetsAndActivity.swift */; };
+		5E9BF1B12C774C2A0027F054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E9BF1B02C774C2A0027F054 /* Assets.xcassets */; };
+		5E9BF1B52C774C2A0027F054 /* MyWalksWidgetsAndActivityExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5E9BF1A32C774C260027F054 /* MyWalksWidgetsAndActivityExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5E9BF1BA2C774D460027F054 /* WalkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E79322A2C6627FF006E90B5 /* WalkModel.swift */; };
 		5EE584AB2C6112B400606C93 /* My_WalksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE584AA2C6112B400606C93 /* My_WalksApp.swift */; };
 		5EE584B12C6112B600606C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EE584B02C6112B600606C93 /* Assets.xcassets */; };
 		5EE584B42C6112B600606C93 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EE584B32C6112B600606C93 /* Preview Assets.xcassets */; };
@@ -22,6 +30,30 @@
 		5EEBEB8B2C67A31A005DAA73 /* WalkDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBEB8A2C67A31A005DAA73 /* WalkDetailsView.swift */; };
 		5EECC2542C6247740012A42F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EECC2532C6247740012A42F /* MapView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5E9BF1B32C774C2A0027F054 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EE5849F2C6112B400606C93 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E9BF1A22C774C260027F054;
+			remoteInfo = MyWalksWidgetsAndActivityExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5E9BF1B62C774C2A0027F054 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5E9BF1B52C774C2A0027F054 /* MyWalksWidgetsAndActivityExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5E37E0A32C67C3F00069554F /* SaveWalkFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveWalkFormView.swift; sourceTree = "<group>"; };
@@ -32,6 +64,16 @@
 		5E5A0A2B2C612E4D00DC642C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5E7932282C661FD2006E90B5 /* SaveWalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveWalkView.swift; sourceTree = "<group>"; };
 		5E79322A2C6627FF006E90B5 /* WalkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkModel.swift; sourceTree = "<group>"; };
+		5E9BF1A32C774C260027F054 /* MyWalksWidgetsAndActivityExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MyWalksWidgetsAndActivityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E9BF1A52C774C260027F054 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		5E9BF1A72C774C270027F054 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		5E9BF1AA2C774C270027F054 /* MyWalksWidgetsAndActivityBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWalksWidgetsAndActivityBundle.swift; sourceTree = "<group>"; };
+		5E9BF1AC2C774C270027F054 /* MyWalksWidgetsAndActivityLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWalksWidgetsAndActivityLiveActivity.swift; sourceTree = "<group>"; };
+		5E9BF1AE2C774C270027F054 /* MyWalksWidgetsAndActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWalksWidgetsAndActivity.swift; sourceTree = "<group>"; };
+		5E9BF1B02C774C2A0027F054 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5E9BF1B22C774C2A0027F054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E9BF1BB2C7759FB0027F054 /* MyWalksWidgetsAndActivityExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyWalksWidgetsAndActivityExtension.entitlements; sourceTree = "<group>"; };
+		5E9BF1BC2C775C130027F054 /* My Walks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "My Walks.entitlements"; sourceTree = "<group>"; };
 		5EE584A72C6112B400606C93 /* My Walks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Walks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE584AA2C6112B400606C93 /* My_WalksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_WalksApp.swift; sourceTree = "<group>"; };
 		5EE584B02C6112B600606C93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,6 +85,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5E9BF1A02C774C260027F054 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E9BF1A82C774C270027F054 /* SwiftUI.framework in Frameworks */,
+				5E9BF1A62C774C270027F054 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5EE584A42C6112B400606C93 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -74,10 +125,34 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		5E9BF1A42C774C260027F054 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E9BF1A52C774C260027F054 /* WidgetKit.framework */,
+				5E9BF1A72C774C270027F054 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5E9BF1A92C774C270027F054 /* MyWalksWidgetsAndActivity */ = {
+			isa = PBXGroup;
+			children = (
+				5E9BF1AA2C774C270027F054 /* MyWalksWidgetsAndActivityBundle.swift */,
+				5E9BF1AC2C774C270027F054 /* MyWalksWidgetsAndActivityLiveActivity.swift */,
+				5E9BF1AE2C774C270027F054 /* MyWalksWidgetsAndActivity.swift */,
+				5E9BF1B02C774C2A0027F054 /* Assets.xcassets */,
+				5E9BF1B22C774C2A0027F054 /* Info.plist */,
+			);
+			path = MyWalksWidgetsAndActivity;
+			sourceTree = "<group>";
+		};
 		5EE5849E2C6112B400606C93 = {
 			isa = PBXGroup;
 			children = (
+				5E9BF1BB2C7759FB0027F054 /* MyWalksWidgetsAndActivityExtension.entitlements */,
 				5EE584A92C6112B400606C93 /* My Walks */,
+				5E9BF1A92C774C270027F054 /* MyWalksWidgetsAndActivity */,
+				5E9BF1A42C774C260027F054 /* Frameworks */,
 				5EE584A82C6112B400606C93 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				5EE584A72C6112B400606C93 /* My Walks.app */,
+				5E9BF1A32C774C260027F054 /* MyWalksWidgetsAndActivityExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +169,7 @@
 		5EE584A92C6112B400606C93 /* My Walks */ = {
 			isa = PBXGroup;
 			children = (
+				5E9BF1BC2C775C130027F054 /* My Walks.entitlements */,
 				5EECC24E2C623A2B0012A42F /* Models */,
 				5E5A0A262C61158D00DC642C /* Assets */,
 				5E5A0A222C6112FD00DC642C /* Views */,
@@ -134,6 +211,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5E9BF1A22C774C260027F054 /* MyWalksWidgetsAndActivityExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E9BF1B92C774C2A0027F054 /* Build configuration list for PBXNativeTarget "MyWalksWidgetsAndActivityExtension" */;
+			buildPhases = (
+				5E9BF19F2C774C260027F054 /* Sources */,
+				5E9BF1A02C774C260027F054 /* Frameworks */,
+				5E9BF1A12C774C260027F054 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyWalksWidgetsAndActivityExtension;
+			productName = MyWalksWidgetsAndActivityExtension;
+			productReference = 5E9BF1A32C774C260027F054 /* MyWalksWidgetsAndActivityExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		5EE584A62C6112B400606C93 /* My Walks */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5EE584B72C6112B600606C93 /* Build configuration list for PBXNativeTarget "My Walks" */;
@@ -141,10 +235,12 @@
 				5EE584A32C6112B400606C93 /* Sources */,
 				5EE584A42C6112B400606C93 /* Frameworks */,
 				5EE584A52C6112B400606C93 /* Resources */,
+				5E9BF1B62C774C2A0027F054 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5E9BF1B42C774C2A0027F054 /* PBXTargetDependency */,
 			);
 			name = "My Walks";
 			productName = "My Walks";
@@ -161,6 +257,9 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					5E9BF1A22C774C260027F054 = {
+						CreatedOnToolsVersion = 15.4;
+					};
 					5EE584A62C6112B400606C93 = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -180,11 +279,20 @@
 			projectRoot = "";
 			targets = (
 				5EE584A62C6112B400606C93 /* My Walks */,
+				5E9BF1A22C774C260027F054 /* MyWalksWidgetsAndActivityExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5E9BF1A12C774C260027F054 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E9BF1B12C774C2A0027F054 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5EE584A52C6112B400606C93 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -197,6 +305,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5E9BF19F2C774C260027F054 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E9BF1AD2C774C270027F054 /* MyWalksWidgetsAndActivityLiveActivity.swift in Sources */,
+				5E9BF1AF2C774C270027F054 /* MyWalksWidgetsAndActivity.swift in Sources */,
+				5E9BF1BA2C774D460027F054 /* WalkModel.swift in Sources */,
+				5E9BF1AB2C774C270027F054 /* MyWalksWidgetsAndActivityBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5EE584A32C6112B400606C93 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,7 +337,71 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5E9BF1B42C774C2A0027F054 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E9BF1A22C774C260027F054 /* MyWalksWidgetsAndActivityExtension */;
+			targetProxy = 5E9BF1B32C774C2A0027F054 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		5E9BF1B72C774C2A0027F054 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MyWalksWidgetsAndActivityExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BDHB667Z99;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyWalksWidgetsAndActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MyWalksWidgetsAndActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Vladislav.My-Walks.MyWalksWidgetsAndActivity";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5E9BF1B82C774C2A0027F054 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MyWalksWidgetsAndActivityExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BDHB667Z99;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyWalksWidgetsAndActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MyWalksWidgetsAndActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Vladislav.My-Walks.MyWalksWidgetsAndActivity";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		5EE584B52C6112B600606C93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -341,8 +524,10 @@
 		5EE584B82C6112B600606C93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "My Walks/My Walks.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"My Walks/Preview Content\"";
@@ -373,8 +558,10 @@
 		5EE584B92C6112B600606C93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "My Walks/My Walks.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"My Walks/Preview Content\"";
@@ -405,6 +592,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5E9BF1B92C774C2A0027F054 /* Build configuration list for PBXNativeTarget "MyWalksWidgetsAndActivityExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E9BF1B72C774C2A0027F054 /* Debug */,
+				5E9BF1B82C774C2A0027F054 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5EE584A22C6112B400606C93 /* Build configuration list for PBXProject "My Walks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
