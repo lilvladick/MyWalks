@@ -1,4 +1,6 @@
 import SwiftUI
+import CoreLocation
+import ActivityKit
 
 struct ControlPanelView: View {
     @AppStorage("isDarkModeOn") private var isDarkModeOn = false
@@ -7,6 +9,7 @@ struct ControlPanelView: View {
     @State private var showAlert = false
     @EnvironmentObject private var locationManager: LocationManager
     @Binding var showSaveWalkSheet: Bool
+    @State private var timer: Timer?
     
     var body: some View {
         NavigationStack {
@@ -29,6 +32,7 @@ struct ControlPanelView: View {
                         if !walkIsStarted {
                             walkIsStarted = true
                             locationManager.clearLocationsArray()
+                            locationManager.startActivity()
                             locationManager.startLocationServices()
                         } else {
                             walkIsPaused = true
@@ -69,6 +73,7 @@ struct ControlPanelView: View {
                             walkIsPaused = false
                             locationManager.stopLocationServices()
                             showSaveWalkSheet = true
+                            locationManager.stopActivity()
                         }
                     )
                 }

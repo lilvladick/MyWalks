@@ -4,8 +4,7 @@ import SwiftUI
 
 struct MyWalksWidgetsAndActivityAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
-        // Dynamic stateful properties about your activity go here!
-        var emoji: String
+        var distance: Double
     }
 
     // Fixed non-changing properties about your activity go here!
@@ -16,10 +15,13 @@ struct MyWalksWidgetsAndActivityLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: MyWalksWidgetsAndActivityAttributes.self) { context in
             // Lock screen/banner UI goes here
-            VStack {
-                Text("Hello \(context.state.emoji)")
+            HStack {
+                Image(systemName: "figure.walk").font(.title).padding(.horizontal)
+                Text("\(context.state.distance * 0.001, specifier: "%.2f") kilometrs")
+                    .font(.title)
+                    .bold()
             }
-            .activityBackgroundTint(Color.cyan)
+            .activityBackgroundTint(Color.clear)
             .activitySystemActionForegroundColor(Color.black)
 
         } dynamicIsland: { context in
@@ -27,23 +29,20 @@ struct MyWalksWidgetsAndActivityLiveActivity: Widget {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
-                    Text("Leading")
-                }
-                DynamicIslandExpandedRegion(.trailing) {
-                    Text("Trailing")
+                    Image(systemName: "figure.walk.motion").font(.title)
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text("Bottom \(context.state.emoji)")
-                    // more content
+                    Text("\(context.state.distance * 0.001, specifier: "%.2f") kilometrs")
+                        .font(.title2)
+                        .bold()
                 }
             } compactLeading: {
-                Text("L")
+                Image(systemName: "figure.walk")
             } compactTrailing: {
-                Text("T \(context.state.emoji)")
+                Text("\(context.state.distance * 0.001, specifier: "%.1f") km")
             } minimal: {
-                Text(context.state.emoji)
+                
             }
-            .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
         }
     }
@@ -55,19 +54,3 @@ extension MyWalksWidgetsAndActivityAttributes {
     }
 }
 
-extension MyWalksWidgetsAndActivityAttributes.ContentState {
-    fileprivate static var smiley: MyWalksWidgetsAndActivityAttributes.ContentState {
-        MyWalksWidgetsAndActivityAttributes.ContentState(emoji: "😀")
-     }
-     
-     fileprivate static var starEyes: MyWalksWidgetsAndActivityAttributes.ContentState {
-         MyWalksWidgetsAndActivityAttributes.ContentState(emoji: "🤩")
-     }
-}
-
-#Preview("Notification", as: .content, using: MyWalksWidgetsAndActivityAttributes.preview) {
-   MyWalksWidgetsAndActivityLiveActivity()
-} contentStates: {
-    MyWalksWidgetsAndActivityAttributes.ContentState.smiley
-    MyWalksWidgetsAndActivityAttributes.ContentState.starEyes
-}

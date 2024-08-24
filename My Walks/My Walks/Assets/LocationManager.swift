@@ -1,4 +1,5 @@
 import Foundation
+import ActivityKit
 import SwiftUI
 import CoreLocation
 
@@ -9,8 +10,10 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var userLocation: CLLocation?
     @Published var locations: [CLLocationCoordinate2D] = []
     private var lastLocation: CLLocation?
+    private var timer: Timer?
+    var activity: Activity<MyWalksWidgetsAndActivityAttributes>?
     var isAuthorized = false
-    
+
     override init() {
         super.init()
         locationManager.delegate = self
@@ -80,6 +83,61 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 completion("Placemark not found")
             }
         }
+    }
+    
+    func startActivity() {
+        let initialContentState = MyWalksWidgetsAndActivityAttributes.ContentState(distance: 0.0)
+        let activityAttributes = MyWalksWidgetsAndActivityAttributes(name: "Current Walk")
+        
+        do {
+            let activityContent = ActivityContent(state: initialContentState, staleDate: Date().addingTimeInterval(24*60*60))
+            activity = try Activity<MyWalksWidgetsAndActivityAttributes>.request(
+                attributes: activityAttributes,
+                content: activityContent
+            )
+            
+            startTrackingDistance()
+        } catch {
+            print("Error Live Activity: \(error.localizedDescription)")
+        }
+    }
+    
+    func stopActivity() {
+        stopTrackingDistance()
+        
+        if let activity = activity {
+            let finalContentState = MyWalksWidgetsAndActivityAttributes.ContentState(distance: totalDistance)
+            let finalContnet = ActivityContent(state: finalContentState, staleDate: Date().addingTimeInterval(24*60*60))
+            Task {
+                await activity.end(finalContnet, dismissalPolicy: .immediate)
+            }
+        }
+    }
+    
+    private func startTrackingDistance() {
+        print("start")
+        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
+            self?.getDistance()
+        }
+        print("timer start")
+    }
+    
+    @objc func getDistance() {
+        print("getting distance")
+        if let activity = activity {
+            print("activity")
+            let updatedContentState = MyWalksWidgetsAndActivityAttributes.ContentState(distance: totalDistance)
+            print(totalDistance)
+            let updatedContent = ActivityContent(state: updatedContentState, staleDate: Date().addingTimeInterval(24*60*60))
+            Task {
+                await activity.update(updatedContent)
+            }
+        }
+    }
+    
+    private func stopTrackingDistance() {
+        timer?.invalidate()
+        timer = nil
     }
 
     /**

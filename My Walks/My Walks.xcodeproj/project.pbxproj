@@ -22,6 +22,7 @@
 		5E9BF1B12C774C2A0027F054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E9BF1B02C774C2A0027F054 /* Assets.xcassets */; };
 		5E9BF1B52C774C2A0027F054 /* MyWalksWidgetsAndActivityExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5E9BF1A32C774C260027F054 /* MyWalksWidgetsAndActivityExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5E9BF1BA2C774D460027F054 /* WalkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E79322A2C6627FF006E90B5 /* WalkModel.swift */; };
+		5EDE666A2C7A0609000BBF3C /* MyWalksWidgetsAndActivityLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9BF1AC2C774C270027F054 /* MyWalksWidgetsAndActivityLiveActivity.swift */; };
 		5EE584AB2C6112B400606C93 /* My_WalksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE584AA2C6112B400606C93 /* My_WalksApp.swift */; };
 		5EE584B12C6112B600606C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EE584B02C6112B600606C93 /* Assets.xcassets */; };
 		5EE584B42C6112B600606C93 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EE584B32C6112B600606C93 /* Preview Assets.xcassets */; };
@@ -324,6 +325,7 @@
 				5E5A0A2C2C612E4D00DC642C /* SettingsView.swift in Sources */,
 				5E79322B2C6627FF006E90B5 /* WalkModel.swift in Sources */,
 				5EE584AB2C6112B400606C93 /* My_WalksApp.swift in Sources */,
+				5EDE666A2C7A0609000BBF3C /* MyWalksWidgetsAndActivityLiveActivity.swift in Sources */,
 				5EEBEB872C679928005DAA73 /* WalkRowView.swift in Sources */,
 				5E5A0A2A2C61281600DC642C /* ControlPanelView.swift in Sources */,
 				5E37E0A42C67C3F00069554F /* SaveWalkFormView.swift in Sources */,
@@ -537,6 +539,7 @@
 				INFOPLIST_FILE = "My-Walks-Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need to know your location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need to know your location";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -571,6 +574,7 @@
 				INFOPLIST_FILE = "My-Walks-Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need to know your location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need to know your location";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
